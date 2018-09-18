@@ -6,7 +6,7 @@ describe Player do
   context 'Different wallet value on initialisation' do
     let(:subject) { Player.new('Sam', 100) }
 
-    describe '#initialize', :init do
+    describe '#wallet', :wallet do
       it 'Sets the players balance based on argument given on initialisation' do
         expect(subject.wallet).to eq(100)
       end
