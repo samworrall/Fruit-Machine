@@ -9,4 +9,10 @@ class Machine
   def update_jackpot(value)
     @jackpot += value
   end
+
+  def spin
+    result = []
+    4.times { result << @slot_colours.sample }
+    result
+  end
 end

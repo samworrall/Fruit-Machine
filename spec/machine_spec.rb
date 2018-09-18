@@ -34,4 +34,10 @@ describe Machine do
       expect(subject.slot_colours).to eq(['Black', 'White', 'Green', 'Yellow'])
     end
   end
+
+  describe '#spin', :spin do
+    it 'Returns an array of 4 colours' do
+      expect(subject.spin.length).to eq(4)
+    end
+  end
 end
