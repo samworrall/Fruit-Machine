@@ -27,5 +27,10 @@ describe Game, :game do
       subject.play
       expect(machine).to have_received(:update_jackpot).once
     end
+
+    it 'Calls the spin method on the machine' do
+      subject.play
+      expect(machine).to have_received(:spin).once
+    end
   end
 end

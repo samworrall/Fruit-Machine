@@ -7,6 +7,7 @@ class Game
   end
 
   def play
+    @machine.spin
     @player.update_wallet(-1)
     @machine.update_jackpot(1)
   end
