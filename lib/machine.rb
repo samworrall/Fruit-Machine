@@ -14,6 +14,6 @@ class Machine
   def spin
     result = []
     4.times { result << @slot_colours.sample }
-    result
+    @slots = result
   end
 end

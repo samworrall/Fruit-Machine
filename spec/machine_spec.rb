@@ -45,5 +45,9 @@ describe Machine, :machine do
     it 'Begins empty' do
       expect(subject.slots).to be_empty
     end
+
+    it 'Updates after a spin' do
+      expect{ subject.spin }.to change{ subject.slots.length }.by(4)
+    end
   end
 end
