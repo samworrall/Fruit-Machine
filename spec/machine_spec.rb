@@ -29,9 +29,9 @@ describe Machine do
     end
   end
 
-  describe '#slots', :slots do
+  describe '#slot_colours', :slot_colours do
     it 'Returns an array of colours' do
-      expect(subject.slots).to eq(['Black', 'White', 'Green', 'Yellow'])
+      expect(subject.slot_colours).to eq(['Black', 'White', 'Green', 'Yellow'])
     end
   end
 end
