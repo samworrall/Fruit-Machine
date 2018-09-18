@@ -5,4 +5,8 @@ class Player
     @name = name
     @wallet = wallet_size
   end
+
+  def update_wallet(value)
+    @wallet += value
+  end
 end

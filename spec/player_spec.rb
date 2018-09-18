@@ -24,4 +24,10 @@ describe Player do
       expect(subject.wallet).to eq(50)
     end
   end
+
+  describe '#update_wallet', :update_wallet do
+    it 'Increases the value of the player wallet' do
+      expect{ subject.update_wallet(1) }.to change{ subject.wallet }.by(1)
+    end
+  end
 end
