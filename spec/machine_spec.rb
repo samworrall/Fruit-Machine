@@ -40,4 +40,10 @@ describe Machine, :machine do
       expect(subject.spin.length).to eq(4)
     end
   end
+
+  describe '#slots', :slots do
+    it 'Begins empty' do
+      expect(subject.slots).to be_empty
+    end
+  end
 end
