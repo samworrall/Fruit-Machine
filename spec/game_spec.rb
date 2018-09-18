@@ -22,5 +22,10 @@ describe Game, :game do
       subject.play
       expect(player).to have_received(:update_wallet).once
     end
+
+    it 'Calls the update_jackpot method on the machine' do
+      subject.play
+      expect(machine).to have_received(:update_jackpot).once
+    end
   end
 end

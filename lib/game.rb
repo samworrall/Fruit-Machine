@@ -8,5 +8,6 @@ class Game
 
   def play
     @player.update_wallet(-1)
+    @machine.update_jackpot(1)
   end
 end
