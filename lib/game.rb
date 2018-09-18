@@ -5,4 +5,8 @@ class Game
     @machine = machine
     @player = player
   end
+
+  def play
+    @player.update_wallet(-1)
+  end
 end
