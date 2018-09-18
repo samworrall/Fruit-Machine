@@ -18,4 +18,10 @@ describe Machine do
       expect(subject.jackpot).to eq(500)
     end
   end
+
+  describe '#update_jackpot', :update_jackpot do
+    it 'Increases the value of the machine jackpot' do
+      expect{ subject.update_jackpot(1) }.to change{ subject.jackpot }.by(1)
+    end
+  end
 end

@@ -4,4 +4,8 @@ class Machine
   def initialize(jackpot)
     @jackpot = jackpot
   end
+
+  def update_jackpot(value)
+    @jackpot += value
+  end
 end
