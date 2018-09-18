@@ -28,4 +28,10 @@ describe Machine do
       expect{ subject.update_jackpot(-1) }.to change{ subject.jackpot }.by(-1)
     end
   end
+
+  describe '#slots', :slots do
+    it 'Returns an array of colours' do
+      expect(subject.slots).to eq(['Black', 'White', 'Green', 'Yellow'])
+    end
+  end
 end
