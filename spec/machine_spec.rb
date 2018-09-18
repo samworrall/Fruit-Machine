@@ -1,6 +1,6 @@
 require 'machine'
 
-describe Machine do
+describe Machine, :machine do
   let(:subject) { Machine.new(500) }
 
   context 'Different jackpot value on initialisation' do

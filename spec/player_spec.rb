@@ -1,6 +1,6 @@
 require 'player'
 
-describe Player do
+describe Player, :player do
   let(:subject) { Player.new('Sam', 50) }
 
   context 'Different wallet value on initialisation' do
