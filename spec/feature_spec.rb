@@ -59,4 +59,20 @@ describe 'Feature', :feature do
       end
     end
   end
+
+  context 'Slots have two or more adjacent equal colours' do
+    before(:each) do
+      srand(4)
+    end
+
+    describe 'Slots have two or more adjacent equal colours' do
+      it 'Increases the player wallet by 5' do
+        expect{ game.play }.to change{ player.wallet }.by(5)
+      end
+
+      it 'Decreases the machine jackpot by 5' do
+        expect{ game.play }.to change{ machine.jackpot }.by(-5)
+      end
+    end
+  end
 end

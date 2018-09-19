@@ -14,6 +14,9 @@ class Game
     elsif all_slots_unique
       @player.update_wallet(@machine.jackpot / 2)
       @machine.update_jackpot(-(@machine.jackpot / 2))
+    elsif two_or_more_adjacent_slots_equal
+      @player.update_wallet(5)
+      @machine.update_jackpot(-5)
     else
       @player.update_wallet(-1)
       @machine.update_jackpot(1)
@@ -28,5 +31,11 @@ class Game
 
   def all_slots_unique
     @machine.slots.uniq.length == 4
+  end
+
+  def two_or_more_adjacent_slots_equal
+    @machine.slots[0] == @machine.slots[1] ||
+    @machine.slots[1] == @machine.slots[2] ||
+    @machine.slots[2] == @machine.slots[3]
   end
 end
