@@ -32,6 +32,21 @@ describe 'Feature', :feature do
       it 'Increases the player wallet by the jackpot value' do
         expect{ game.play }.to change{ player.wallet }.by(machine.jackpot)
       end
+
+      it 'Decreases the machine jackpot to 0' do
+        expect{ game.play }.to change{ machine.jackpot }.by(-(machine.jackpot))
+        expect(machine.jackpot).to eq(0)
+      end
     end
   end
+
+  # context 'Slot colours award no prize' do
+  #   before(:each) do
+  #     srand(5)
+  #   end
+  #
+  #   describe 'Slot colours award no prize' do
+  #
+  #   end
+  # end
 end
