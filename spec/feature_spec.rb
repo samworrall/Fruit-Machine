@@ -40,13 +40,19 @@ describe 'Feature', :feature do
     end
   end
 
-  # context 'Slot colours award no prize' do
-  #   before(:each) do
-  #     srand(5)
-  #   end
-  #
-  #   describe 'Slot colours award no prize' do
-  #
-  #   end
-  # end
+  context 'Slot colours award no prize' do
+    before(:each) do
+      srand(5)
+    end
+
+    describe 'Slot colours award no prize' do
+      it 'Decreases the player wallet by 1' do
+        expect{ game.play }.to change{ player.wallet }.by(-1)
+      end
+
+      it 'Increases the machine jackpot by 1' do
+        expect{ game.play }.to change{ machine.jackpot }.by(1)
+      end
+    end
+  end
 end
