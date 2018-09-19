@@ -13,12 +13,12 @@ describe 'Feature', :feature do
     end
 
     describe 'All slot colours are different' do
-      it 'Reduces the player wallet by 1' do
-        expect{ game.play }.to change{ player.wallet }.by(-1)
+      it 'Increases the player wallet by half the jackpot' do
+        expect{ game.play }.to change{ player.wallet }.by((machine.jackpot) / 2)
       end
 
-      it 'Increases the machine jackpot by 1' do
-        expect{ game.play }.to change{ machine.jackpot }.by(1)
+      it 'Decreases the machine jackpot by half' do
+        expect{ game.play }.to change{ machine.jackpot }.by(-((machine.jackpot) / 2))
       end
     end
   end
