@@ -29,6 +29,10 @@ describe 'Feature', :feature do
     end
 
     describe 'All slot colours are the same' do
+      it 'Displays the slot colours to stdout' do
+        expect{ game.play }.to output("[\"White\", \"White\", \"White\", \"White\"]\n").to_stdout
+      end
+
       it 'Increases the player wallet by the jackpot value' do
         expect{ game.play }.to change{ player.wallet }.by(machine.jackpot)
       end
