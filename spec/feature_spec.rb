@@ -22,4 +22,16 @@ describe 'Feature', :feature do
       end
     end
   end
+
+  context 'All slot colours are the same' do
+    before(:each) do
+      srand(30)
+    end
+
+    describe 'All slot colours are the same' do
+      it 'Increases the player wallet by the jackpot value' do
+        expect{ game.play }.to change{ player.wallet }.by(machine.jackpot)
+      end
+    end
+  end
 end

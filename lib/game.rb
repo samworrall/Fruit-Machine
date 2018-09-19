@@ -8,7 +8,12 @@ class Game
 
   def play
     @machine.spin
-    @player.update_wallet(-1)
-    @machine.update_jackpot(1)
+    if @machine.slots.uniq.length == 1
+      @player.update_wallet(@machine.jackpot)
+      @machine.update_jackpot(-(@machine.jackpot))
+    else
+      @player.update_wallet(-1)
+      @machine.update_jackpot(1)
+    end
   end
 end
