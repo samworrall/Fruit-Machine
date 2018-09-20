@@ -50,4 +50,11 @@ describe Player, :player do
       expect{ subject.update_free_spins(-1) }.to change{ subject.free_spins }.by(-1)
     end
   end
+
+  describe '#check_wallet', :check_wallet do
+    it 'Raises an error if the wallet is empty' do
+      subject.update_wallet(-50)
+      expect{ subject.check_wallet }.to raise_error('You do not have enough credits to spin!')
+    end
+  end
 end

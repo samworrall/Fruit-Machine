@@ -7,6 +7,7 @@ class Game
   end
 
   def play
+    @player.check_wallet
     @machine.spin
     if @machine.all_slots_equal
       pay_out_jackpot

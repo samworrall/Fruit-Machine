@@ -14,4 +14,8 @@ class Player
   def update_free_spins(value)
     @free_spins += value
   end
+
+  def check_wallet
+    raise('You do not have enough credits to spin!') if @wallet == 0
+  end
 end

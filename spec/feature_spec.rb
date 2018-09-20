@@ -88,4 +88,13 @@ describe 'Feature', :feature do
       end
     end
   end
+
+  context 'Player has an empty wallet' do
+    let(:player) { Player.new('Sam', 0) }
+    describe 'Player attempts to spin without an empty wallet' do
+      it 'Throws an error' do
+        expect{ game.play }.to raise_error('You do not have enough credits to spin!')
+      end
+    end
+  end
 end
