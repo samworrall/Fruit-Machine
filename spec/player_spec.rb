@@ -34,4 +34,10 @@ describe Player, :player do
       expect{ subject.update_wallet(-1) }.to change{ subject.wallet }.by(-1)
     end
   end
+
+  describe '#free_spins', :free_spins do
+    it 'Begins at 0' do
+      expect(subject.free_spins).to eq(0)
+    end
+  end
 end

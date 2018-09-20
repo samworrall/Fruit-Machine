@@ -23,6 +23,8 @@ class Game
     end
   end
 
+  private
+
   def jackpot
     @machine.jackpot
   end
