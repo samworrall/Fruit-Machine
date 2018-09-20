@@ -50,4 +50,51 @@ describe Machine, :machine do
       expect{ subject.spin }.to change{ subject.slots.length }.by(4)
     end
   end
+
+  context 'All slots are equal' do
+    before(:each) do
+      srand(30)
+    end
+
+    describe '#all_slots_equal', :equal do
+      it 'Returns true' do
+        subject.spin
+        expect(subject.all_slots_equal).to be(true)
+      end
+    end
+
+    describe '#all_slots_unique', :unique do
+      it 'Returns false' do
+        subject.spin
+        expect(subject.all_slots_unique).to be(false)
+      end
+    end
+  end
+
+  context 'All slots are unique' do
+    before(:each) do
+      srand(3)
+    end
+
+    describe '#all_slots_unique', :unique do
+      it 'Returns true' do
+        subject.spin
+        expect(subject.all_slots_unique).to be(true)
+      end
+    end
+
+    describe '#all_slots_equal', :equal do
+      it 'Returns false' do
+        subject.spin
+        expect(subject.all_slots_equal).to be(false)
+      end
+    end
+
+    describe '#two_or_more_adjacent_slots_equal', :two_or_more do
+      it 'Returns false' do
+        subject.spin
+        expect(subject.two_or_more_adjacent_slots_equal).to be(false)
+      end
+    end
+  end
 end

@@ -16,4 +16,16 @@ class Machine
     4.times { result << @slot_colours.sample }
     p @slots = result
   end
+
+  def all_slots_equal
+    @slots.uniq.length == 1
+  end
+
+  def all_slots_unique
+    @slots.uniq.length == 4
+  end
+
+  def two_or_more_adjacent_slots_equal
+    @slots[0] == @slots[1] || @slots[1] == @slots[2] || @slots[2] == @slots[3]
+  end
 end
