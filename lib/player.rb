@@ -10,4 +10,8 @@ class Player
   def update_wallet(value)
     @wallet += value
   end
+
+  def update_free_spins(value)
+    @free_spins += value
+  end
 end

@@ -10,13 +10,18 @@ class Game
     @machine.spin
     if @machine.all_slots_equal
       @player.update_wallet(jackpot)
-      @machine.update_jackpot(-(jackpot))
+      @machine.update_jackpot(-jackpot)
     elsif @machine.all_slots_unique
       @player.update_wallet(half_jackpot)
-      @machine.update_jackpot(-(half_jackpot))
+      @machine.update_jackpot(-half_jackpot)
     elsif @machine.two_or_more_adjacent_slots_equal
-      @player.update_wallet(5)
-      @machine.update_jackpot(-5)
+      if jackpot < 5
+        @player.update_free_spins(5 - jackpot)
+        @machine.update_jackpot(-jackpot)
+      else
+        @player.update_wallet(5)
+        @machine.update_jackpot(-5)
+      end
     else
       @player.update_wallet(-1)
       @machine.update_jackpot(1)

@@ -75,4 +75,17 @@ describe 'Feature', :feature do
       end
     end
   end
+
+  context 'Machine jackpot is less than is owed' do
+    let(:machine) { Machine.new(2) }
+    before(:each) do
+      srand(4)
+    end
+
+    describe 'Player is credited 3 free spins' do
+      it 'Increases player free_spins by 3' do
+        expect { game.play }.to change{ player.free_spins }.by(3)
+      end
+    end
+  end
 end

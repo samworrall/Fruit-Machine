@@ -40,4 +40,14 @@ describe Player, :player do
       expect(subject.free_spins).to eq(0)
     end
   end
+
+  describe '#update_free_spins' do
+    it 'Increases the free_spins by 1' do
+      expect{ subject.update_free_spins(1) }.to change{ subject.free_spins }.by(1)
+    end
+
+    it 'Decreases the free_spins by 1' do
+      expect{ subject.update_free_spins(-1) }.to change{ subject.free_spins }.by(-1)
+    end
+  end
 end
