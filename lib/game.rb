@@ -9,22 +9,13 @@ class Game
   def play
     @machine.spin
     if @machine.all_slots_equal
-      @player.update_wallet(jackpot)
-      @machine.update_jackpot(-jackpot)
+      pay_out_jackpot
     elsif @machine.all_slots_unique
-      @player.update_wallet(half_jackpot)
-      @machine.update_jackpot(-half_jackpot)
+      payout_half_jackpot
     elsif @machine.two_or_more_adjacent_slots_equal
-      if jackpot < 5
-        @player.update_free_spins(5 - jackpot)
-        @machine.update_jackpot(-jackpot)
-      else
-        @player.update_wallet(5)
-        @machine.update_jackpot(-5)
-      end
+      payout_5_credits
     else
-      @player.update_wallet(-1)
-      @machine.update_jackpot(1)
+      standard_spin
     end
   end
 
@@ -36,5 +27,30 @@ class Game
 
   def half_jackpot
     @machine.jackpot / 2
+  end
+
+  def pay_out_jackpot
+    @player.update_wallet(jackpot)
+    @machine.update_jackpot(-jackpot)
+  end
+
+  def payout_half_jackpot
+    @player.update_wallet(half_jackpot)
+    @machine.update_jackpot(-half_jackpot)
+  end
+
+  def payout_5_credits
+    if jackpot < 5
+      @player.update_free_spins(5 - jackpot)
+      @machine.update_jackpot(-jackpot)
+    else
+      @player.update_wallet(5)
+      @machine.update_jackpot(-5)
+    end
+  end
+
+  def standard_spin
+    @player.update_wallet(-1)
+    @machine.update_jackpot(1)
   end
 end
