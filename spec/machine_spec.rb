@@ -97,4 +97,31 @@ describe Machine, :machine do
       end
     end
   end
+
+  context 'Two or more adjacent slots are equal' do
+    before(:each) do
+      srand(4)
+    end
+
+    describe '#two_or_more_adjacent_slots_equal', :two_or_more do
+      it 'Returns true' do
+        subject.spin
+        expect(subject.two_or_more_adjacent_slots_equal).to be(true)
+      end
+    end
+
+    describe '#all_slots_unique', :unique do
+      it 'Returns false' do
+        subject.spin
+        expect(subject.all_slots_unique).to be(false)
+      end
+    end
+
+    describe '#all_slots_equal', :equal do
+      it 'Returns false' do
+        subject.spin
+        expect(subject.all_slots_equal).to be(false)
+      end
+    end
+  end
 end
